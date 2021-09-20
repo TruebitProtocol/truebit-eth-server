@@ -1,3 +1,13 @@
+# docker build -t truebit-eth-server .
+#
+# YYY=$HOME'/truebit-docker'
+# docker run --network host -v $YYY/docker-clef:/root/.clef \
+#	-v $YYY/docker-geth:/root/.ethereum \
+#	-v $YYY/docker-ipfs:/root/.ipfs \
+#	-v $YYY/wasm-bin:/root/wasm-bin \
+#   -e TBMODE=solver \
+#	--name truebit --rm -it truebit-eth-server:latest
+
 FROM truebitprotocol/truebit-eth:latest
 MAINTAINER truebit
 
@@ -10,4 +20,4 @@ ADD ./scripts /tbscripts
 # Open IPFS and blockchain ports
 EXPOSE 4001 8080 8545 8546 30303
 
-CMD bash /tbscripts/start.sh
+CMD bash /tbscripts/start.sh ; /bin/bash
