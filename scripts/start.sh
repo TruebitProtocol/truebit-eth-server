@@ -2,6 +2,8 @@
 echo "Starting truebit-eth-server using $TBMODE mode."
 
 # copy binaries from external volume to internal storage
+bash /tbscripts/copy-binaries.sh
+
 # examine env vars and run the proper start-up script
 case "$TBMODE" in
     init)
