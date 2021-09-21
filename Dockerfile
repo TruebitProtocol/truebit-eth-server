@@ -7,6 +7,7 @@
 #	-v $YYY/wasm-bin:/root/wasm-bin \
 #   -e TBMODE=solver \
 #   -e TBNETWORK=goerli \
+#   -e TBPASS=clefpasswd \
 #	--name truebit --rm -it truebit-eth-server:latest
 #
 # valid values for TBMODE are init, solver, or verifier. Bad or missing arg defaults to init.

@@ -1,7 +1,5 @@
 #!/bin/bash
-
-#STUPID SHIT
-CLEF_PWD='password'
+CLEF_PWD=$1
 
 # Initialize Truebit toolchain for generating C/C++ tasks
 #source /emsdk/emsdk_env.sh #(run this first)

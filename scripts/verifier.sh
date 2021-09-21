@@ -1,11 +1,13 @@
 #!/bin/bash
 echo "verifier mode."
+CLEF_PWD=$1
+TBNETWORK=$2
 
 if [[ "$TBNETWORK" == "goerli"]]; then
-    bash ./goerli_setup.sh &
+    bash ./goerli_setup.sh $CLEF_PWD &
     GETH_IPC='/root/.ethereum/goerli/geth.ipc'
 else
-    bash ./main_setup.sh &
+    bash ./main_setup.sh $CLEF_PWD &
     GETH_IPC='/root/.ethereum/geth.ipc'
 fi
 WALLET=${VERIFY_WALLET_ID:=0}

@@ -1,8 +1,5 @@
 #!/bin/bash
-echo "Starting truebit-eth-server using $TBMODE mode."
-
-# copy binaries from external volume to internal storage
-bash /tbscripts/copy-binaries.sh
+echo "Starting truebit-eth-server using $TBMODE mode on $TBNETWORK."
 
 # examine env vars and run the proper start-up script
 case "$TBMODE" in
@@ -11,14 +8,14 @@ case "$TBMODE" in
         ;;
 
     solver)
-        bash /tbscripts/solver.sh
+        bash /tbscripts/solver.sh "$TBPASS" "$TBNETWORK"
         ;;
     
     verifier)
-        bash //tbscripts/verifier.sh
+        bash /tbscripts/verifier.sh "$TBPASS" "$TBNETWORK"
         ;;
 
     *)
-        echo "No TBMODE environment variable found. Running interactive init mode."
+        echo "No valid TBMODE environment variable found. Running interactive init mode."
         bash /tbscripts/init.sh
 esac
