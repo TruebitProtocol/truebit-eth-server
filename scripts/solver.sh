@@ -6,10 +6,10 @@ SOLVER_WALLET_ID=$3
 
 if [ "$TBNETWORK" == "goerli" ]
 then
-    bash ./goerli_setup.sh "$CLEF_PWD" &
+    bash /tbscripts/goerli_setup.sh "$CLEF_PWD" &
     GETH_IPC='/root/.ethereum/goerli/geth.ipc'
 else
-    bash ./main_setup.sh "$CLEF_PWD" &
+    bash /tbscripts/main_setup.sh "$CLEF_PWD" &
     GETH_IPC='/root/.ethereum/geth.ipc'
 fi
 WALLET="${SOLVER_WALLET_ID:=0}"
