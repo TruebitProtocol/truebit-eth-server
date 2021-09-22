@@ -9,7 +9,7 @@
 #   -e TBNETWORK=goerli \
 #   -e TBPASS=clefpasswd \
 #.  -e TBWALLET=wallet_id \
-#	--name truebit --rm -it truebit-eth-server:latest
+#	--name truebit --rm -d -it truebit-eth-server:latest
 #
 # valid values for TBMODE are init, solver, or verifier. Bad or missing arg defaults to init.
 # valid values for TBNETWORK are mainnet or goerli
