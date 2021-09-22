@@ -18,4 +18,4 @@ echo "Waiting for GETH IPC to Exist..."
 until [ -S $GETH_IPC ]; do sleep 1; done
 cd /truebit-eth
 echo "Starting TrueBit-OS In Verifier Mode on Wallet [$WALLET]"
-./truebit-os -c "start verify -a $WALLET" --batch 2>> ~/logs/truebit-verify.log &
+./truebit-os -c "start verify -a $WALLET" --batch 2>> ~/logs/truebit-verify.log
