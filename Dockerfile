@@ -20,6 +20,9 @@ MAINTAINER truebit
 # Get missing parts
 RUN apt-get update && apt-get install -y dialog screen
 
+# Copy our scripts to a good spot
+ADD ./scripts /tbscripts
+
 # Open IPFS and blockchain ports
 EXPOSE 4001 8080 8545 8546 30303
 
