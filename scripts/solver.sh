@@ -9,7 +9,7 @@ then
     bash /tbscripts/goerli_setup.sh "$CLEF_PWD" &
     GETH_IPC='/root/.ethereum/goerli/geth.ipc'
 else
-    bash /tbscripts/main_setup.sh "$CLEF_PWD" &
+    bash /tbscripts/mainnet_setup.sh "$CLEF_PWD" &
     GETH_IPC='/root/.ethereum/geth.ipc'
 fi
 WALLET="${SOLVER_WALLET_ID:=0}"
