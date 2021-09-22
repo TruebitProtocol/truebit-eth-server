@@ -180,8 +180,9 @@ To run truebit-eth-server as a dedicated solver or verifier, you need to have ru
 
 After having configured a truebit-eth-server installation using the Quickstart instructions, stop the container by exiting from the shell prompt (control-D or exit) and restart the container. Be sure to provide appropriate values for the environment variables TBMODE, TBNETWORK, and TBPASS.
 
-  * Legal values for TBMODE are init, solver, or verifier
-  * Legal values for TBNETWORK are mainnet or goerli
+  * Legal values for TBMODE are init, solver, or verifier. Default is init.
+  * Legal values for TBNETWORK are mainnet or goerli. Required.
+  * Legal values for TBWALLET are numbers 0-n, which correspond to the wallet/account ID in clef and truebit-os. Defaults to 0
   * The value of TBPASS should be set by an appropriate method to maintain privacy/security of that value (e.g., stty -echo, etc.)
 
 The following example demonstrates launching truebit-eth-server as a solver on the goerli test network. Modify environment variable values accordingly for mainnet operations or to function as a verifier.
@@ -192,7 +193,8 @@ docker run --network host -v $YYY/docker-clef:/root/.clef -v $YYY/docker-geth:/r
 -e TBMODE=solver \
 -e TBNETWORK=goerli \
 -e TBPASS=clefpasswd \
---name truebit --rm -dit truebitprotocol/truebit-eth-server:latest
+-e TBWALLET=0 \
+--name truebit --rm -d -it truebitprotocol/truebit-eth-server:latest
 ```
 
 Once launched, the -d option will detach the running Truebit Docker container from your interactive terminal session, where it will continue to run in the background. See Docker documentation for additional command line arguments, such as --restart, to allow for automated restart on power failure or reboot, or to mount external volumes for hosting binary tasks and metadata.
