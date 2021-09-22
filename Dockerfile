@@ -13,6 +13,7 @@
 #
 # valid values for TBMODE are init, solver, or verifier. Bad or missing arg defaults to init.
 # valid values for TBNETWORK are mainnet or goerli
+# valid values for TBWALLET are 0-n, corresponding to the account ID in clef and truebit-os. Defaults to 0
 
 FROM truebitprotocol/truebit-eth:latest
 MAINTAINER truebit
