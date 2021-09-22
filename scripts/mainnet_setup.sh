@@ -23,7 +23,7 @@ GETH=$(echo 'geth --rpc --nousb --syncmode light --signer' $CLEF_IPC)
 cat <<< $(jq '.geth.providerURL="/root/.ethereum/geth.ipc"' /truebit-eth/wasm-client/config.json) > /truebit-eth/wasm-client/config.json
 CLEF_CMD='clef --advanced --nousb --chainid 5 --keystore ~/.ethereum/keystore --rules /truebit-eth/wasm-client/ruleset.js'
 screen -d -m -S ClefSession bash -c "stty -echo; $CLEF_CMD"
-sleep 10s
+sleep 5s
 screen -S ClefSession -p 0 -X stuff "ok"
 screen -S ClefSession -p 0 -X stuff "^M$CLEF_PWD^M"
 until [ -S $CLEF_IPC ]; do sleep 1; done;

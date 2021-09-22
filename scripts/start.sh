@@ -8,11 +8,11 @@ case "$TBMODE" in
         ;;
 
     solver)
-        bash /tbscripts/solver.sh "$TBPASS" "$TBNETWORK"
+        bash /tbscripts/solver.sh "$TBPASS" "$TBNETWORK" "$TBWALLET"
         ;;
     
     verifier)
-        bash /tbscripts/verifier.sh "$TBPASS" "$TBNETWORK"
+        bash /tbscripts/verifier.sh "$TBPASS" "$TBNETWORK" "$TBWALLET"
         ;;
 
     *)
