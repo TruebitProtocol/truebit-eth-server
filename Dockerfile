@@ -18,7 +18,7 @@ FROM truebitprotocol/truebit-eth:latest
 MAINTAINER truebit
 
 # Get missing parts in 1 layer
-RUN apt-get update && apt-get install -y dialog screen ; echo "PS1='${debian_chroot:+($debian_chroot)}\u@\h(truebit-eth-server):\w\$ '" >> /root/.bashrc
+RUN apt-get update && apt-get install -y dialog screen ; mkdir /root/logs ; echo "PS1='${debian_chroot:+($debian_chroot)}\u@\h(truebit-eth-server):\w\$ '" >> /root/.bashrc
 
 # Copy our scripts to a good spot
 ADD ./scripts /tbscripts
