@@ -55,6 +55,16 @@ truebit-eth is designed as an interactive environment for configuring, managing,
 ## Why do I have to build it myself?
 While truebit-eth-server is appropriate for a wide variety of use cases, there may be applications that require customization of the various scripts and parameters, or need specific integrations with other non-Truebit software. Because we cannot anticipate the wide variety of use cases, it's easiest to provide full access to all of the truebit-eth-server internals so that power users can build or enhance it as needed for their projects.
 
+## How can I hide my clef password?
+In order to start in unattended server mode, truebit-eth-server needs to start clef internally and give it authorization to sign Truebit transactions. That means providing clef with the password to its internal key store. There are several ways to pass this password information on the Docker command like that will avoid having it show as clear text in logs, command buffers, etc. The simplest is to manually set an environment variable that will hold the password while disabling terminal echo. Something like:
+```
+stty -echo
+mypass=secretclefpassword
+stty echo
+docker run.... -e TBPASS=$mypass
+```
+In this example, the stty command turns off the echoing of keystrokes to the display, allowing you to assign the password to an intermediate variable which can then be used with the Docker command. You are encouraged to reset or delete the local environment variable (mypass in this example) after starting the Docker process. (e.g., mypass="")
+
 ## Why is truebit-eth-server being made available?
 This version of the truebit-eth stack is the first of several developer community-focused tools and resources being provided by Truebit. Providing a widely available, appliance like version of the Truebit protocol will help grow the number of nodes on the network, increase transaction volume, and give software developers a more robust way to integrate Truebit into their DeFi, Dapp, and cloud applications. This is the first of many community-focused tools, tutorials, and sample tasks aimed at helping developers understand how to build on the Truebit protocol and integrate it into a wide variety of applications.
 
