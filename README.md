@@ -8,7 +8,7 @@ truebit-eth-server provides a better way to participate in the Truebit network a
 to configure a new Truebit instance. Information here is for power users who understand Docker, microservices, Truebit, and server operations. If you are just getting started with Truebit, please start with the information contained in the truebit-eth repository first.**
 
 # Getting Started with truebit-eth-server
-As mentioned, truebit-eth-server is a wrapper of services around the existing truebit-eth Docker image. As such, it must be configured and made ready to run in server mode. In order to do that, you should follow the existing truebit-eth "getting started" instructions, which will provide step-by-step guidance to configure Truebit, tokens, wallets, and tasks in preparation for participating in the Truebit network of task givers, solvers, and verifiers. Please read that documentation, which has been modified slightly to reflect the minor Docker command line changes used by truebit-eth-server. If you have set up and run truebit-eth already, you may skip directly to the "Running truebit-eth-server As a Server".
+As mentioned, truebit-eth-server is a wrapper of services around the existing truebit-eth Docker image. As such, it must be configured and made ready to run in server mode. In order to do that, you should follow the existing truebit-eth "getting started" instructions, which will provide step-by-step guidance to configure Truebit, tokens, wallets, and tasks in preparation for participating in the Truebit network of task givers, solvers, and verifiers. If you have set up and run truebit-eth already, you may skip directly to the "Building the truebit-eth-server Docker image".
 
 ## Building the truebit-eth-server Docker image
 Start by pulling this repository from Github. From inside the truebit-eth-server directory, use Docker to build the new image:
@@ -27,7 +27,7 @@ To run truebit-eth-server as a dedicated solver or verifier, you need to have ru
 
 ## Launching as a Stand-Alone Solver or Verifier Server
 
-After having configured a truebit-eth-server installation using the Quickstart instructions from truebit-eth, stop the container by exiting from the shell prompt (control-D or exit) and restart the container using the commands below. Be sure to provide appropriate values for the environment variables TBMODE, TBNETWORK, and TBPASS.
+After having configured a truebit-eth-server installation using the Quickstart instructions from truebit-eth, stop the container by exiting from the shell prompt (control-D or exit) and restart the container using the commands below. Be sure to provide appropriate values for the environment variables TBMODE, TBNETWORK, TBWALLET, and TBPASS.
 
   * Legal values for TBMODE are init, solver, or verifier. Default is init.
   * Legal values for TBNETWORK are mainnet or goerli. Default is goerli.
