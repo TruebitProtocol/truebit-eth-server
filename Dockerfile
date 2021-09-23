@@ -12,8 +12,10 @@
 #	--name truebit --rm -d -it truebit-eth-server:latest
 #
 # valid values for TBMODE are init, solver, or verifier. Bad or missing arg defaults to init.
-# valid values for TBNETWORK are mainnet or goerli
+# valid values for TBNETWORK are mainnet or goerli. Default is goerli.
 # valid values for TBWALLET are 0-n, corresponding to the account ID in clef and truebit-os. Defaults to 0
+# TBPASS should be defined using methods that do not disclose the actual password on the Docker command line 
+#  (e.g. stty -echo, mypass="xxxx", stty echo   and then use -e TBPASS=$mypass )
 
 FROM truebitprotocol/truebit-eth:latest
 MAINTAINER truebit

@@ -4,13 +4,13 @@ CLEF_PWD=$1
 TBNETWORK=$2
 VERIFY_WALLET_ID=$3
 
-if [ "$TBNETWORK" == "goerli" ]
+if [ "$TBNETWORK" == "mainnet" ]
 then
-    bash /tbscripts/goerli_setup.sh $CLEF_PWD &
-    GETH_IPC='/root/.ethereum/goerli/geth.ipc'
-else
     bash /tbscripts/mainnet_setup.sh $CLEF_PWD &
     GETH_IPC='/root/.ethereum/geth.ipc'
+else
+    bash /tbscripts/goerli_setup.sh $CLEF_PWD &
+    GETH_IPC='/root/.ethereum/goerli/geth.ipc'
 fi
 WALLET="${VERIFY_WALLET_ID:=0}"
 
