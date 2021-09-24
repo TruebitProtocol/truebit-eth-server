@@ -56,7 +56,7 @@ truebit-eth is designed as an interactive environment for configuring, managing,
 While truebit-eth-server is appropriate for a wide variety of use cases, there may be applications that require customization of the various scripts and parameters, or need specific integrations with other non-Truebit software. Because we cannot anticipate the wide variety of use cases, it's easiest to provide full access to all of the truebit-eth-server internals so that power users can build or enhance it as needed for their projects.
 
 ## How can I hide my clef password?
-In order to start in unattended server mode, truebit-eth-server needs to start clef internally and give it authorization to sign Truebit transactions. That means providing clef with the password to its internal key store. There are several ways to pass this password information on the Docker command like that will avoid having it show as clear text in logs, command buffers, etc. The simplest is to manually set an environment variable that will hold the password while disabling terminal echo. Something like:
+In order to start in unattended server mode, truebit-eth-server needs to start clef internally and give it authorization to sign Truebit transactions. That means providing clef with the password to its internal key store. There are several ways to pass this password information on the Docker command line that will avoid having it show as clear text in logs, command buffers, etc. The simplest is to manually set an environment variable that will hold the password while disabling terminal echo. Something like:
 ```
 stty -echo
 mypass=secretclefpassword
