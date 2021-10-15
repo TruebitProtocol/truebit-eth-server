@@ -13,7 +13,7 @@ As mentioned, truebit-eth-server is a wrapper of services around the existing tr
 ## Building the truebit-eth-server Docker image
 Start by pulling this repository from Github. From inside the truebit-eth-server directory, use Docker to build the new image:
 ```
-docker build -t truebit-eth-server .
+docker build -t truebit/eth-server .
 ```
 This process will automatically pull the latest truebit-eth image from Docker and add appropiate support for server operations to it, resulting in a new image called truebit-eth-server.
 
@@ -37,21 +37,26 @@ After having configured a truebit-eth-server installation using the Quickstart i
 The following example demonstrates launching truebit-eth-server as a solver on the goerli test network. Modify environment variable values accordingly for mainnet operations or to function as a verifier.
 
 ```bash
-YYY=$HOME'/truebit-docker'
-docker run --network host -v $YYY/docker-clef:/root/.clef -v $YYY/docker-geth:/root/.ethereum -v $YYY/docker-ipfs:/root/.ipfs \
+TP_MOUNTPOINT=$HOME'/truebit-docker'
+docker run --network host \
+-v $TP_MOUNTPOINT/docker-clef:/root/.clef \
+-v $TP_MOUNTPOINT/docker-geth:/root/.ethereum \
+-v $TP_MOUNTPOINT/docker-ipfs:/root/.ipfs \
 -e TBMODE=solver \
 -e TBNETWORK=goerli \
 -e TBPASS=clefpasswd \
 -e TBWALLET=0 \
---name truebit --rm -d -it truebit-eth-server:latest
+--name truebit-eth-server --rm -d -it truebitprotocol/eth-server:latest
 ```
 
 Once launched, the -d option will detach the running Truebit Docker container from your interactive terminal session, where it will continue to run in the background. See Docker documentation for additional command line arguments, such as --restart, to allow for automated restart on power failure or reboot, or to mount external volumes for hosting binary tasks and metadata.
 
-# Running truebit-eth-server in the Cloud
-If you are familiar with Amazon Web Services and the AWS EC2 service in particular, the following document describes the steps necessary to provision a new EC2 server instance, install, configure, and run truebit-eth-server.
+# Setting up truebit-eth-server on Linux
+Below is a curated list of tutorials for setting up truebit-eth-server on VPS services.
+* [Amazon AWS](docs/howto/AWS_Howto.md)
 
-[Running truebit-eth-server in Amazon Web Services](docs/AWS_Howto.md)
+Furthermore, for linux distributions:
+* [Ubuntu](docs/howto/ubuntu_howto.md)
 
 # truebit-eth-server FAQ
 ## When should I use truebit-eth vs. truebit-eth-server?
