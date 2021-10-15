@@ -48,6 +48,11 @@ docker run --network host -v $YYY/docker-clef:/root/.clef -v $YYY/docker-geth:/r
 
 Once launched, the -d option will detach the running Truebit Docker container from your interactive terminal session, where it will continue to run in the background. See Docker documentation for additional command line arguments, such as --restart, to allow for automated restart on power failure or reboot, or to mount external volumes for hosting binary tasks and metadata.
 
+# Running truebit-eth-server in the Cloud
+If you are familiar with Amazon Web Services and the AWS EC2 service in particular, the following document describes the steps necessary to provision a new EC2 server instance, install, configure, and run truebit-eth-server.
+
+[Running truebit-eth-server in Amazon Web Services](docs/AWS_Howto.md)
+
 # truebit-eth-server FAQ
 ## When should I use truebit-eth vs. truebit-eth-server?
 truebit-eth is designed as an interactive environment for configuring, managing, and learning about the Truebit protocol and its runtime environment. truebit-eth-server is 100% compatible with truebit-eth, plus it adds extra script support for running as a server process. So if you have a need to run Truebit solvers or verifiers in a production environment, as an unattended server, or as a platform that may need to restart and resume unattended operations, you should use truebit-eth-server
