@@ -39,7 +39,7 @@ sudo swapon --show
 ## Setting up truebit-eth-server
 ```sh
 # Building truebit-eth-server
-docker build -t truebitprotocol/eth-server https://github.com/TruebitProtocol/truebit-eth-server.git#main
+docker build -t truebit-eth-server https://github.com/TruebitProtocol/truebit-eth-server.git#main
 
 # Running truebit-eth-server
 TP_MOUNTPOINT=$HOME'/truebit-docker'
@@ -51,7 +51,7 @@ docker run \
 -v $TP_MOUNTPOINT/docker-ipfs:/root/.ipfs \
 --rm \
 -it \
-truebitprotocol/eth-server:latest /bin/bash
+truebit-eth-server:latest /bin/bash
 ```
 You should follow the "Quick Start" instructions for configuring a new Truebit installation using the [truebit-eth documentation](https://github.com/TruebitProtocol/truebit-eth#initializing-accounts) and starting with the "Initializing Accounts" section.
 
@@ -76,7 +76,7 @@ docker run \
 --restart \
 -d \
 -it \
-truebitprotocol/eth-server:latest
+truebit-eth-server:latest
 ```
 Note that you will need to supply the appropriate TBMODE, TBNETWORK, and TBPASS arguments. Also note that this image is launched with the "--restart" flag. That means that if you reboot your machine, truebit-eth-server will automatically restart and resume solving or verifying.
 

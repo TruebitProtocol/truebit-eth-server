@@ -13,7 +13,7 @@ As mentioned, truebit-eth-server is a wrapper of services around the existing tr
 ## Building the truebit-eth-server Docker image
 Start by pulling this repository from Github. From inside the truebit-eth-server directory, use Docker to build the new image:
 ```
-docker build -t truebit/eth-server .
+docker build -t truebit-eth-server .
 ```
 This process will automatically pull the latest truebit-eth image from Docker and add appropiate support for server operations to it, resulting in a new image called truebit-eth-server.
 
@@ -46,7 +46,7 @@ docker run --network host \
 -e TBNETWORK=goerli \
 -e TBPASS=clefpasswd \
 -e TBWALLET=0 \
---name truebit-eth-server --rm -d -it truebitprotocol/eth-server:latest
+--name truebit-eth-server --rm -d -it truebit-eth-server:latest
 ```
 
 Once launched, the -d option will detach the running Truebit Docker container from your interactive terminal session, where it will continue to run in the background. See Docker documentation for additional command line arguments, such as --restart, to allow for automated restart on power failure or reboot, or to mount external volumes for hosting binary tasks and metadata.
